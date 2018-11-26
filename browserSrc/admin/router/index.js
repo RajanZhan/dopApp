@@ -1,16 +1,22 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Cookies from "js-cookie";
+import Login from "@/pages/login/login"
+import Index from "@/pages/index/index"
+import User from "@/pages/user/user"
+import Role from "@/pages/role/role"
+import Default from "@/pages/default/default"
+
 Vue.use(Router)
 const router = new Router({
   routes: [{
       path: '/index',
       name: 'index',
-      component: require("@/pages/index/index.vue"),
+      component: Index,
       children: [{
           name: "user",
           path: "user",
-          component: require("@/pages/user/user.vue"),
+          component: User,
           meta: {
             keepAlive: true // 需要缓存
           }
@@ -18,7 +24,7 @@ const router = new Router({
         {
           name: "role",
           path: "role",
-          component: require("@/pages/role/role.vue"),
+          component: Role,
           meta: {
             keepAlive: false 
           }
@@ -26,7 +32,7 @@ const router = new Router({
         {
           name: "default",
           path: "default",
-          component: require("@/pages/default/default.vue"),
+          component: Default,
           meta: {
             keepAlive: true // 需要缓存
           }
@@ -47,7 +53,7 @@ const router = new Router({
     {
       path: '/login',
       name: 'login',
-      component: require("@/pages/login/login")
+      component: Login
     },
     // {
     //   name:"vmonitor",
@@ -58,7 +64,7 @@ const router = new Router({
 })
 
 // 无需授权登录
-const noAuthPath = new Set(["login", "vmonitor"]);
+//const noAuthPath = new Set(["login", "vmonitor"]);
 
 router.beforeEach((to, from, next) => {
   let isLoign = Cookies.get("login");

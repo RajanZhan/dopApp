@@ -40,6 +40,7 @@
 	"browserProject":[
 		{
 			"name":"admin",/*项目名，与browserSrc 下的目录名 一致*/
+			"port":"82",/*监听的端口*/
 			"active":"1" /* 如果为true 则该项目处于调试模式，webpack将实时编译*/
 		},
 		{

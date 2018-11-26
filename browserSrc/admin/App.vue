@@ -103,6 +103,7 @@ export default {
       }
     });
     this.heart();
+    console.log("App.vue created");
   },
   methods: {
     ...mapMutations({

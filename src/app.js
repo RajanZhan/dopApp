@@ -80,7 +80,7 @@ module.exports = async () => {
         global.$req = req;
         global.$res = res;
         //启用授权中间件
-        require("./middleware/dopAuth.middle").default(req,res,next);
+        require("./middleware/dopAuth.middle").default(req, res, next);
         //next();
     });
     middleware(app); // 调用自定义中间件
@@ -95,7 +95,8 @@ module.exports = async () => {
             console.log("web ui 项目启动", browserProject);
             for (let project of browserProject) {
                 if (project.active == "1") {
-                   // var webpackConfig = require(`./browserSrc/${project.name}/webpack.dev.config.js`);
+                    var uiApp = express();
+                    // var webpackConfig = require(`./browserSrc/${project.name}/webpack.dev.config.js`);
                     var webpackConfig = require(`../browserSrc/${project.name}/webpack.dev.config.js`);
                     var compiler = webpack(webpackConfig);
                     var WebpackHotMid = require("webpack-hot-middleware");
@@ -108,8 +109,19 @@ module.exports = async () => {
                             chunks: false
                         }
                     });
-                    app.use(webpackDevMid);
-                    app.use(webpackHotMid);
+                    uiApp.engine('html', template.__express);
+                    uiApp.set('view engine', 'html');
+                    uiApp.set('views', path.join(__dirname, $config.viewPath));
+                    if ($config.staticPath.length > 0) {
+                        for (let p of $config.staticPath) {
+                            uiApp.use("/static", express.static(p));
+                            uiApp.use(express.static(p));
+                        }
+                    }
+                    uiApp.use(webpackDevMid);
+                    uiApp.use(webpackHotMid);
+                    uiApp.listen(project.port);
+                    console.log(`前端单页应用 ${project.name} 启动成功，监听端口为 ${project.port}`)
                     break;
                 }
             }

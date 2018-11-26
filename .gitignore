@@ -8,7 +8,6 @@
 /out/.idea
 /logs
 /out/logs
-/out/config.json
 /out/yarn.lock
 /out/extends/*/logs
 /out/extends/*/node_modules

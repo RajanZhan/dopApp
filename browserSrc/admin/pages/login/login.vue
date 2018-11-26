@@ -5,6 +5,7 @@
        <iframe :style="{width:runingApps[0].width - 30 +'px',height:runingApps[0].height -46 +'px'}"
         :src="runingApps[0].url+'?width='+runingApps[0].width"></iframe>
     </Dialog>
+    
 
   </div>
 
@@ -39,7 +40,7 @@ export default {
   },
 
   mounted() {
-    console.log("app is ");
+    console.log("loginlvue mounted ");
   },
   methods: {
     menuClick(event) {

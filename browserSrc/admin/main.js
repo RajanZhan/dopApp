@@ -42,18 +42,18 @@ Vue.prototype.$http = http;
 //   }); 
 Vue.use(api);
 
-// import 'vx-easyui/dist/themes/default/easyui.css';
-// import 'vx-easyui/dist/themes/icon.css';
-// import 'vx-easyui/dist/themes/vue.css';
-// import EasyUI from 'vx-easyui';
-// Vue.use(EasyUI);
+import 'vx-easyui/dist/themes/default/easyui.css';
+import 'vx-easyui/dist/themes/icon.css';
+import 'vx-easyui/dist/themes/vue.css';
+import EasyUI from 'vx-easyui';
+Vue.use(EasyUI);
 
 
 
-// element ui
-// import ElementUI from 'element-ui';
-// import 'element-ui/lib/theme-chalk/index.css';
-// Vue.use(ElementUI);
+//element ui
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+Vue.use(ElementUI);
 
 // cube-ui
 // import Cube from 'cube-ui'

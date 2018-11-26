@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 // const fs = require("fs");
 // const jsonmini = require("jsonminify");
 // const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
@@ -12,7 +13,7 @@ function resolve(dir) {
 
 const config = require("./compile.confog");
 const projectName = config.name
-console.log("hahhah wepbakv", path.resolve(__dirname, `../../out/dist/${projectName}.html`));
+//console.log("hahhah wepbakv", path.resolve(__dirname, `../../out/dist/${projectName}.html`));
 
 module.exports = {
     entry: [HotScript,`../browserSrc/${projectName}/main.js` ],
@@ -102,5 +103,6 @@ module.exports = {
         }),
         new TransformModulesPlugin(),
         new webpack.HotModuleReplacementPlugin(),
+        new VueLoaderPlugin(),
     ]
 };
