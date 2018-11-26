@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<meta charset="UTF-8">
+<title>weixin</title>
+
+<script type="text/javascript">
+//调用微信JS api 支付
+function jsApiCall()
+{
+//alert("call wxpay");
+
+WeixinJSBridge.invoke(
+	'getBrandWCPayRequest',
+	{
+		"appId": "{{ order.appId }}",
+		"timeStamp": "{{ order.timeStamp }}",
+		"nonceStr": "{{ order.nonceStr }}",
+		"package": "{{ order.package }}",
+		"signType": "{{ order.signType }}",
+		"paySign": "{{ order.paySign }}"
+	}, 
+	function(res){
+	WeixinJSBridge.log(res.err_msg);
+		alert(res.err_code+res.err_desc+res.err_msg);
+	}
+);
+}
+function callpay()
+{
+	if (typeof WeixinJSBridge == "undefined"){
+		if( document.addEventListener ){
+			document.addEventListener('WeixinJSBridgeReady', jsApiCall, false);
+		}else if (document.attachEvent){
+			document.attachEvent('WeixinJSBridgeReady', jsApiCall);
+			document.attachEvent('onWeixinJSBridgeReady', jsApiCall);
+		}
+	}else{
+		jsApiCall();
+	}
+}
+</script>
+
+</head>
+<body> 
+{ appId: 'wx798121fc649a554c
+  timeStamp: '1522985884',
+  nonceStr: 'cteBf3vdvEo60DX
+  package: 'prepay_id=wx0611
+  signType: 'MD5',
+  paySign: '82A5AFE6EBD492EF
+  timestamp: '1522985884' }
+  
+
+
+
+<div align="center">
+	<button type="button" onclick="callpay()">立即支付</button>
+</div>
+</body>
+</html>

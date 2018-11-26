@@ -1,0 +1,4 @@
+{
+    "debug":true,
+    "workers":3 // 子进程数据量
+}

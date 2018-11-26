@@ -1,0 +1,10 @@
+{
+    "debug": true,
+    "db": {
+        "host": "127.0.0.1",
+        "db": "spider",
+        "uname": "root",
+        "pwd": "11111111"
+    },
+    "workers": 1 // 子进程数据量
+}

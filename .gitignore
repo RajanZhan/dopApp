@@ -1,0 +1,27 @@
+/out/build
+/out/taskProcess/node_modules
+/out/dist/*.js
+/out/node_modules
+/browserSrc/*/node_modules
+/out/compileTool/node_modules
+/.idea
+/out/.idea
+/logs
+/out/logs
+/out/config.json
+/out/yarn.lock
+/out/extends/*/logs
+/out/extends/*/node_modules
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+node_modules
+/browserSrc/node_modules
+yarn.lock
+/src/node_modules
+
+

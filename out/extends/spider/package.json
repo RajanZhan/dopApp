@@ -1,0 +1,42 @@
+{
+  "name": "webpack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "iconv-lite": "^0.4.24",
+    "jsonminify": "^0.4.1",
+    "mysql": "^2.15.0",
+    "mysql2": "^1.5.3",
+    "node-watch": "^0.5.8",
+    "request": "^2.88.0",
+    "sequelize": "^4.39.1",
+    "sequelize-values": "^1.1.0",
+    "supervisor": "^0.12.0",
+    "webpack": "^4.5.0"
+  },
+  "watch": [
+    "index.spider.js",
+    "main.model.js"
+  ],
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "json-loader": "^0.5.7",
+    "nodemon": "^1.18.4",
+    "uglifyjs-webpack-plugin": "^1.2.5",
+    "webpack-cli": "^2.0.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack",
+    "dev1": "webpack --watch ",
+    "dev": "nodemon index.spider.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

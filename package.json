@@ -1,0 +1,26 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "@types/node": "^10.12.9",
+    "chokidar": "^2.0.4",
+    "node-cmd": "^3.0.0",
+    "webpack": "^2.6.1",
+    "webpack-cli": "^2.0.14",
+    "webpack-dev-middleware": "^2.0.4",
+    "webpack-dev-server": "^2.4.5",
+    "webpack-hot-middleware": "^2.18.0",
+    "webpack-sources": "^1.1.0"
+  },
+  "scripts": {
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

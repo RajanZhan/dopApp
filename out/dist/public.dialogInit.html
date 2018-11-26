@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>创建咨询</title>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <link rel="shortcut icon" href="/favicon.ico">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+    <link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+</head>
+
+<body>
+    <div class="page-group">
+        <div class="page page-current">
+            <!-- 你的html代码 -->
+            <div class="card">
+                <div class="card-header">您为谁咨询</div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        {{ each family as value }}
+                        <div>
+                            <input name="forUser" value="{{ value.id }}" type="radio">
+                            <span>
+                                {{ value.relation.name }}
+                                 {{if value.familyUserInfo &&  value.familyUserInfo.name}}
+                                  [{{value.familyUserInfo.name}}]
+                                {{/if}} </span>
+                        </div>
+                        {{ /each }}
+
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">您咨询的类型</div>
+                <div class="card-content">
+                    <div class="card-content-inner">
+                        {{ each depList as value }}
+                        <div>
+                            <input name="type" value="{{ value.id }}" type="radio">
+                            <span>{{ value.title }} </span>
+                        </div>
+                        {{ /each }}
+
+
+                    </div>
+                </div>
+            </div>
+
+            <p><a id="create" class="button button-success">创建咨询</a></p>
+
+
+        </div>
+    </div>
+
+    <script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+    <script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+
+    <script>
+        $(() => {
+            $("#create").on("click", () => {
+                let forUser = $("input[name='forUser']:checked").val();
+                let type = $("input[name='type']:checked").val();
+                if (!forUser || !type) {
+                    return $.alert('请选择被咨询的人以及咨询类型');
+                }
+                $.ajax({
+                    type: "POST",
+                    url: "https://wsapi.52ds.club/api/docWorkstation/postCreateDialog",
+                    data: {
+                        token: '{{token}}',
+                        fromUser: {{userId}},
+                        forUser: forUser,
+                        depId:type
+                    },
+                    success:()=>{
+                        $.toast("创建成功");
+                        setTimeout(() => {
+                            WeixinJSBridge.call("closeWindow");
+                        }, 1000);
+                    },
+                    error:()=>{
+                        $.toast("创建失败，您可能已经创建过咨询");
+                        setTimeout(() => {
+                            WeixinJSBridge.call("closeWindow");
+                        }, 1000);
+                    }
+                })
+                // let data = await wsApi.postCreateDialog({
+
+                // });
+                // this.$toast("咨询创建成功");
+                // setTimeout(() => {
+                //     WeixinJSBridge.call("closeWindow");
+                // }, 2000);
+
+                // $.toast("创建成功");
+
+            })
+        })
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+{
+	/** 免授权的请求path **/
+	"noAuthPath":[
+		"/api/test/public"
+	],
+	/** 爬虫配置 **/
+	"spider":{
+		 "sleep":"300",/***  休眠时间 单位 分 **/
+        "getProxyUrl": "http://api.ip.data5u.com/dynamic/get.html?order=318a742f5f30a0bea3134d9d5bc28f40&sep=3",// 爬虫代理ip读取地址
+        "getNormalProxyUrl": "http://api.ip.data5u.com/api/get.shtml?order=318a742f5f30a0bea3134d9d5bc28f40&num=1000&carrier=0&protocol=0&an1=1&an2=2&an3=3&sp1=1&sp2=2&sp3=3&sort=1&system=1&distinct=0&rettype=0&seprator=%0D%0A" // 普通代理ip读取地址
+	},
+	
+	/*wechat*/
+	"wechat":{
+		"appId":"wx87c9c6ea3a98c2a5",
+		"appSecret":"be12c403263185796c90b54bbe90b6f7",
+		"token":"bxk769XOOw9a83pOBKXeeYixvsMKCAPP",
+		"encodingAESKey":"hmuMuGQKMe8uSIA7WbQCfI341NGOcjyQjh2Dpuv8VKp",
+		"checkSignature":false,
+		"mchId":"1508341351",
+		"apiKey":"OkIusUsgEHJMJnuZSyFGJSOgF5lMUTak",
+		"notifyUrl":"/payNotify",
+		"host":"http://pf.52ds.club",
+		"pfx": "./cert/apiclient_cert.p12"
+	},
+	/* 小程序配置**/
+	"mp":{
+		"appid":"wxa0189f5bdbf6a378",
+		"apps":"746fd7a2877745e2dde8caf995fb0ba1"
+	},
+	/** 外部接口 **/
+	"outerApi":{
+		"apiHost":"http://wxapi.kmctbio.com",// 外部消息接口
+		"sendWxApi":"http://wxapi.kmctbio.com/wechat/wechatapi/sendchat?wechatid=1", // 将消息发送到wx 公众号的数据 接口 
+		"sendWxTmpMsg":"http://wxapi.kmctbio.com/wechat/wechatapi/wxsendtplmsg?wechatid=1", // 发送咨询模板消息
+		"sendtpl":"http://wxapi.kmctbio.com/wechat/wechatapi/sendtpl?wechatid=1" // 发送回访模板消息
+	},
+	
+	/*前端调试的项目  每次只能调试一个前端项目 */
+	"browserProject":[
+		{
+			"name":"admin",/*项目名，与browserSrc 下的目录名 一致*/
+			"active":"1" /* 如果为true 则该项目处于调试模式，webpack将实时编译*/
+		},
+		{
+			"name":"app",
+			"active":"0"
+		}
+	],
+	
+	/** 阿里OSS配置 **/
+	"oss":{
+		"region":"oss-cn-hangzhou",
+		"accessKeyId":"LTAILkVF8UShpDla",
+		"accessKeySecret":"Fhdo0laJGMAcMOv43n2NjVrLlGdCFt",
+		"expires":180 //URL的过期时间
+	},
+	"onlyWechat":0
+}
+ 

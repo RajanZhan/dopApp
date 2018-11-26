@@ -1,0 +1,111 @@
+@@@@@@@@@@@@@@@@@  启用sessin 未启用cluster 和 cache
+Document Length:        161 bytes
+
+Concurrency Level:      10
+Time taken for tests:   1.005 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      126000 bytes
+HTML transferred:       32200 bytes
+Requests per second:    198.94 [#/sec] (mean)
+Time per request:       50.266 [ms] (mean)
+Time per request:       5.027 [ms] (mean, across all concurrent requests)
+Transfer rate:          122.40 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.4      0       1
+Processing:    21   49  13.2     49     103
+Waiting:       21   48  12.9     48     102
+Total:         21   50  13.2     49     103
+
+Percentage of the requests served within a certain time (ms)
+  50%     49
+  66%     52
+  75%     54
+  80%     56
+  90%     63
+  95%     76
+  98%     92
+  99%    103
+ 100%    103 (longest request)
+ 
+ 
+ 
+ @@@@@@@@@@@@@@@@@@@ 启用缓存，禁用session
+ 
+ 
+ 
+ 
+ Document Path:          /api/test/?userId=1&email=email
+Document Length:        161 bytes
+
+Concurrency Level:      10
+Time taken for tests:   0.766 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      103800 bytes
+HTML transferred:       32200 bytes
+Requests per second:    261.11 [#/sec] (mean)
+Time per request:       38.298 [ms] (mean)
+Time per request:       3.830 [ms] (mean, across all concurrent requests)
+Transfer rate:          132.34 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.4      0       1
+Processing:    16   37  10.2     36      81
+Waiting:       16   36  10.2     34      80
+Total:         16   38  10.2     36      81
+
+Percentage of the requests served within a certain time (ms)
+  50%     36
+  66%     39
+  75%     41
+  80%     43
+  90%     47
+  95%     54
+  98%     78
+  99%     81
+ 100%     81 (longest request)
+ 
+ 
+ @@@@@@@@@@@@@@@@@@@@@@@@ 启用缓存，启动cluster
+ 
+ 
+Document Path:          /api/test/?userId=1&email=email
+Document Length:        161 bytes
+
+Concurrency Level:      10
+Time taken for tests:   0.227 seconds
+Complete requests:      200
+Failed requests:        0
+Write errors:           0
+Total transferred:      103800 bytes
+HTML transferred:       32200 bytes
+Requests per second:    879.55 [#/sec] (mean)
+Time per request:       11.369 [ms] (mean)
+Time per request:       1.137 [ms] (mean, across all concurrent requests)
+Transfer rate:          445.79 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        0    0   0.4      0       1
+Processing:     4   11   7.3      8      45
+Waiting:        3   10   7.2      8      45
+Total:          4   11   7.4      9      46
+
+Percentage of the requests served within a certain time (ms)
+  50%      9
+  66%     11
+  75%     13
+  80%     14
+  90%     19
+  95%     26
+  98%     39
+  99%     45
+ 100%     46 (longest request)
+ 
+ 
