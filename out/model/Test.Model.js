@@ -9,15 +9,19 @@ class Test extends Base_Model_1.BaseModel {
     }
     async test(opt) {
         //console.log(, "user model is ");
-        let key = 'cache';
-        let cache = await $cache.get(key);
-        if (cache) {
-            //console.log("from cache");
-            return cache;
-        }
-        cache = await this.$m("user").findAll();
-        $cache.set(key, cache, 1);
-        return cache;
+        // let key = 'cache';
+        // let cache = await $cache.get(key);
+        // if(cache)
+        // {
+        //     //console.log("from cache");
+        //     return cache;
+        // }
+        // cache = await this.$m("user").findAll();
+        // $cache.set(key,cache,1);
+        // return cache;
+        return {
+            result: 'hahah1'
+        };
         //return common.dateFormate(new Date(), "yyyy-MM-dd hh")
     }
 }

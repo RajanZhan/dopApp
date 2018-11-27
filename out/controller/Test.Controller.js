@@ -10,7 +10,7 @@ function middle(req, res, next) {
 exports.middle = middle;
 router.get("/index", async (req, res) => {
     try {
-        let result = await testModel.test({ name: "", age: 12 });
+        let result = await testModel.test({ name: "test", age: 12 });
         // await $logic([{
         //     data: "userId",
         //     require: true,

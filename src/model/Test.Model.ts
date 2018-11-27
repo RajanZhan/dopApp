@@ -18,16 +18,19 @@ export class Test extends BaseModel {
 
     async test(opt: getName) {
         //console.log(, "user model is ");
-        let key = 'cache';
-        let cache = await $cache.get(key);
-        if(cache)
-        {
-            //console.log("from cache");
-            return cache;
+        // let key = 'cache';
+        // let cache = await $cache.get(key);
+        // if(cache)
+        // {
+        //     //console.log("from cache");
+        //     return cache;
+        // }
+        // cache = await this.$m("user").findAll();
+        // $cache.set(key,cache,1);
+        // return cache;
+        return {
+            result:'hahah1'
         }
-        cache = await this.$m("user").findAll();
-        $cache.set(key,cache,1);
-        return cache;
 
         //return common.dateFormate(new Date(), "yyyy-MM-dd hh")
     }

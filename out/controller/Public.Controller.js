@@ -45,3 +45,19 @@ router.get("/userLogin", async (req, res) => {
         res.error("服务器错误");
     }
 });
+//  微服务调用测试
+router.get("/test", async (req, res) => {
+    try {
+        let result = await $msClient({
+            interfaceName: "Test.Logic",
+            actionName: "test",
+            params: [{ name: 'test' }]
+        });
+        res.success(result);
+    }
+    catch (err) {
+        console.log(err);
+        $logger.error({ err: err, msg: "服务器错误" });
+        res.error("服务器错误");
+    }
+});

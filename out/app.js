@@ -130,27 +130,21 @@ module.exports = async () => {
     app.use("/404", (req, res, next) => {
         res.send("404 ");
     });
-    // 启动调试的webpack
-    //if ($config.debug == 1) {
-    // var webpack = require("webpack");
-    // var webpackConfig = require(`./compileTool/webpack.config.js`);
-    // var compiler = webpack(webpackConfig);
-    // //var WebpackHotMid = require("webpack-hot-middleware");
-    // var WebpackDevMid = require("webpack-dev-middleware");
-    // //var webpackHotMid = WebpackHotMid(compiler); //=>require("webpack-hot-middleware")(complier)
-    // var webpackDevMid = WebpackDevMid(compiler, {
-    //     publicPath: '/',
-    //     stats: {
-    //         colors: true,
-    //         chunks: false
-    //     }
-    // });
-    // app.use(webpackDevMid);
-    //app.use(webpackHotMid);
-    //}
-    //console.log("hahaah ");
-    //
-    //app.use();
+
+    // 注册微服务
+    if($config.msServer.isUse)
+    {
+        require("./lib/microServer").default();
+    }
+    //console.log("我服务",$config);
+
+    // 初始化微服务客户端
+    if($config.msClient.isUse)
+    {
+      global.$msClient =  require("./lib/microClient").default;
+      console.log("初始化微服务客户端...");
+    }
+
     var server = http.createServer(app).listen($config.port, $config.host);
     // var io = require('socket.io')(server);
     await require("./common/start")(app, server);
